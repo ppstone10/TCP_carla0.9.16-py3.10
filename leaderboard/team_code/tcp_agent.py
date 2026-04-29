@@ -48,7 +48,7 @@ class TCPAgent(autonomous_agent.AutonomousAgent):
 		self.net = TCP(self.config)
 
 
-		ckpt = torch.load(path_to_conf_file)
+		ckpt = torch.load(path_to_conf_file, map_location='cpu')
 		ckpt = ckpt["state_dict"]
 		new_state_dict = OrderedDict()
 		for key, value in ckpt.items():
